@@ -2,6 +2,11 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+int ldr = 7;
+int x;
+int led = 13;
+
+
 // Constants
 constexpr int RAIN_THRESHOLD = 500;
 constexpr int OLED_RESET = -1; // OLED reset pin
@@ -90,9 +95,23 @@ void setup() {
     HighwayDisplay.clearDisplay();
     HighwayDisplay.setTextSize(2);  // Set text size
     HighwayDisplay.setTextColor(WHITE); // Text color
+    pinMode(7, INPUT);
+    pinMode(13, OUTPUT);
 }
 
 void loop() {
+     x = digitalRead(7);
+  Serial.println(x);
+
+  if(x == HIGH)
+  {
+    digitalWrite(13, HIGH);
+  }
+  if(x == LOW)
+  {
+    digitalWrite(13, LOW);
+  }
+
     int sensorValue = analogRead(A0);
     unsigned long currentTime = millis();
 
