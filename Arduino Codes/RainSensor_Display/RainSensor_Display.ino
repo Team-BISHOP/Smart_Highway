@@ -5,8 +5,6 @@
 // Pin Definitions
 constexpr int LED_PIN = 13;
 constexpr int SENSOR_PIN = 4;
-constexpr int VCC_PIN = 2;
-constexpr int GND_PIN = 3;
 
 // Constants
 constexpr int RAIN_THRESHOLD = 500;
@@ -43,10 +41,7 @@ void setup() {
     // Initialize pins
     pinMode(LED_PIN, OUTPUT);
     pinMode(SENSOR_PIN, INPUT);
-    pinMode(VCC_PIN, OUTPUT);
-    pinMode(GND_PIN, OUTPUT);
-    digitalWrite(VCC_PIN, HIGH);
-    digitalWrite(GND_PIN, LOW);
+
 
     // Initialize display
     setupDisplay();
